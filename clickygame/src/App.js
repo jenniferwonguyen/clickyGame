@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import picCard from "./components/picCard";
-import navBar from "./components/navBar";
+import PicCard from "./components/PicCard";
+import NavBar from "./components/NavBar";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import Container from "./Container";
@@ -26,7 +26,6 @@ class App extends Component {
     rightWrong: "",
     clicked: [],
   };
-
   handleClick = id => {
     if (this.state.clicked.indexOf(id) === -1) {
       this.handleIncrement();
@@ -46,7 +45,7 @@ class App extends Component {
       this.setState({ topScore: newScore });
     }
     else if (newScore === 12) {
-      this.setState({ rightWrong: "You win!" });
+      this.setState({ rightWrong: "You win" });
     }
     this.handleShuffle();
   };
@@ -55,7 +54,7 @@ class App extends Component {
     this.setState({
       currentScore: 0,
       topScore: this.state.topScore,
-      rightWrong: "Glaven!",
+      rightWrong: "Oops! Try again.",
       clicked: []
     });
     this.handleShuffle();
@@ -69,7 +68,7 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <navBar
+        <NavBar
           title="Clicky Game"
           score={this.state.currentScore}
           topScore={this.state.topScore}
@@ -77,15 +76,14 @@ class App extends Component {
         />
 
         <Title>
-          Try to click on each character, but don't hit any duplicates, or
-          we'll release the hounds!!!
+          Try to click on each picture just once, double click and you lose!
         </Title>
 
         <Container>
           <Row>
             {this.state.friends.map(friend => (
-              <Column size="md-3 sm-6">
-                <picCard
+              <Column key={friend.id} size="md-3 sm-6">
+                <PicCard
                   key={friend.id}
                   handleClick={this.handleClick}
                   handleIncrement={this.handleIncrement}

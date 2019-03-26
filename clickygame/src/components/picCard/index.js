@@ -1,2 +1,2 @@
 
-export { default } from "./picCard";
+export { default } from "./PicCard";

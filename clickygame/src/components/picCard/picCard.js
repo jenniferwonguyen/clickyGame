@@ -1,7 +1,7 @@
 import React from "react";
 import "./picCard.css";
 
-const picCard = props => (
+const PicCard = props => (
   <div 
     className="card" 
     value={props.id} 
@@ -13,4 +13,4 @@ const picCard = props => (
   </div>
 );
 
-export default picCard;
+export default PicCard;
