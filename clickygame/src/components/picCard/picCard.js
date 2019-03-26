@@ -1,7 +1,7 @@
 import React from "react";
 import "./picCard.css";
 
-const FriendCard = props => (
+const picCard = props => (
   <div 
     className="card" 
     value={props.id} 
