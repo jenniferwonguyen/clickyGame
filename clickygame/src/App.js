@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import PicCard from "./components/PicCard";
 import NavBar from "./components/NavBar";
 import Wrapper from "./components/Wrapper";
@@ -6,10 +7,10 @@ import Title from "./components/Title";
 import Container from "./Container";
 import Row from "./Row";
 import Column from "./Column";
-import friends from "./pics.json";
+import pics from "./pics.json";
 import "./App.css";
 
-function shuffleFriends(array) {
+function shufflepics(array) {
   for (let i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
@@ -20,7 +21,7 @@ function shuffleFriends(array) {
 class App extends Component {
   // Set this.state
   state = {
-    friends,
+    pics,
     currentScore: 0,
     topScore: 0,
     rightWrong: "",
@@ -61,8 +62,8 @@ class App extends Component {
   };
 
   handleShuffle = () => {
-    let shuffledFriends = shuffleFriends(friends);
-    this.setState({ friends: shuffledFriends });
+    let shuffledpics = shufflepics(pics);
+    this.setState({ pics: shuffledpics });
   };
 
   render() {
@@ -81,16 +82,16 @@ class App extends Component {
 
         <Container>
           <Row>
-            {this.state.friends.map(friend => (
-              <Column key={friend.id} size="md-3 sm-6">
+            {this.state.pics.map(pic => (
+              <Column key={pic.id} size="md-3 sm-6">
                 <PicCard
-                  key={friend.id}
+                  key={pic.id}
                   handleClick={this.handleClick}
                   handleIncrement={this.handleIncrement}
                   handleReset={this.handleReset}
                   handleShuffle={this.handleShuffle}
-                  id={friend.id}
-                  image={friend.image}
+                  id={pic.id}
+                  image={pic.image}
                 />
               </Column>
             ))}
