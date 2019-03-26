@@ -2,7 +2,7 @@
   "name": "clickygame",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/jenniferwonguyen/clickyGame.git",
+  "homepage": "https://jenniferwonguyen.github.io/clickyGame/",
   "dependencies": {
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
